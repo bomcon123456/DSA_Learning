@@ -11,15 +11,39 @@ class User:
         self.ownedBooks = user["ownedBooks"]
         self._mongoDB = mongoDB
 
-    def get_owned_books(self):
-        return self.ownedBooks
+    def get_owned_books_lists(self):
+        pipeline = [
+            {"$match": {"_id": self._id}},
+            {"$project": {"_id": 0, "ownedBooks.id": 1}},
+            {"$unwind": "$ownedBooks"},
+            {"$project": {"id": "$ownedBooks.id"}},
+        ]
+        result = []
+        response = self._mongoDB.aggregate(pipeline)
+        for each in response:
+            result.append(each["id"])
+        return result
 
-    def purchase_book(self, id):
-        self.ownedBooks.append({"id": ObjectId(id), "page": 0})
-
+    def purchase_book(self, book, price):
+        self.ownedBooks.append({"id": book["_id"], "page": 0})
+        self.wallet -= price
         self._mongoDB.update_one(
             {"username": self.username},
-            {"$push": {"ownedBooks": {"id": ObjectId(id), "currentPage": 0}}},
+            {
+                "$push": {"ownedBooks": {"id": book["_id"], "currentPage": 0}},
+                "$set": {"wallet": self.wallet},
+            },
+        )
+
+    def set_current_page(self, bookId, currentPage):
+        for index, each in enumerate(self.ownedBooks, start=0):
+            if each["id"] == bookId:
+                object = {"id": each["id"], "currentPage": currentPage}
+                self.ownedBooks[index] = object
+        print(self.ownedBooks)
+
+        self._mongoDB.update_one(
+            {"username": self.username}, {"$set": {"ownedBooks": self.ownedBooks}}
         )
 
     def get_username(self):
