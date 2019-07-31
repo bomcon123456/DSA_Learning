@@ -1,0 +1,10 @@
+{
+  "title": "Dracula",
+  "subject": "Crime",
+  "description": "Dracula is an 1897 Gothic horror novel by Irish author Bram Stoker. It introduced the character of Count Dracula, and established many conventions of subsequent vampire fantasy.[1] The novel tells the story of Dracula's attempt to move from Transylvania to England so that he may find new blood and spread the undead curse, and of the battle between Dracula and a small group of men and a woman led by Professor Abraham Van Helsing.",
+  "src": "./book_lib/345-0.txt",
+  "price": "$99.55",
+  "pages": "639",
+  "author": "Bram Stoker",
+  "createdAt": "date"
+}
