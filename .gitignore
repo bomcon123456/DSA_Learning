@@ -1,4 +1,4 @@
-Python/Chapter 2/38.bookProject/bin/
-Python/Chapter 2/38.bookProject/include/
-Python/Chapter 2/38.bookProject/lib/
+Python/Chapter 2/*/bin/
+Python/Chapter 2/*/include/
+Python/Chapter 2/*/lib/
 *.pyc
