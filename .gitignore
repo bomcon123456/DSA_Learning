@@ -2,3 +2,9 @@ Python/Chapter 2/*/bin/
 Python/Chapter 2/*/include/
 Python/Chapter 2/*/lib/
 *.pyc
+*.aux
+*.fdb_latexmk
+*.fls
+*.toc
+*.log
+*.synctex.gz

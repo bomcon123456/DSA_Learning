@@ -241,6 +241,6 @@ if __name__ == "__main__":
 
     # Angle will be reversed so it should be angle - 90 if angle > 90
     print(poly == poly2)
-    # print(poly.get_perimeter())
-    # print(poly.get_area())
+    print(poly.get_perimeter())
+    print(poly.get_area())
 
