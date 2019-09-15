@@ -1,6 +1,8 @@
 Python/Chapter 2/*/bin/
 Python/Chapter 2/*/include/
 Python/Chapter 2/*/lib/
+Python/Chapter 2/38.bookProject/.Python/
+Python/Chapter 2/39.Polygon/.Python
 *.pyc
 *.aux
 *.fdb_latexmk
