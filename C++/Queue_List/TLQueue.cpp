@@ -20,6 +20,9 @@ int TLQueue::dequeue() {
   m_head = out->next();
   int res = out->get();
   delete out;
+  if (empty()) {
+    m_tail = nullptr;
+  }
   m_size--;
   return res;
 }
